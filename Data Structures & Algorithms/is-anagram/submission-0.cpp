@@ -1,0 +1,20 @@
+class Solution {
+public:
+    bool isAnagram(string s, string t) {
+        int n=s.size();
+        int m=t.size();
+        if(n!=m) return false;
+        vector<int>fre(26,0);
+        for(int i=0;i<n;i++){
+            fre[s[i]-'a']++;
+        }
+        for(int i=0;i<n;i++){
+            fre[t[i]-'a']--;
+        }
+        //cheak
+        for(int i=0;i<26;i++){
+            if(fre[i]!=0) return false;
+        }
+        return true;
+    }
+};
